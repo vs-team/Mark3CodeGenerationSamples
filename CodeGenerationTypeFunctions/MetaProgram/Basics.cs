@@ -199,7 +199,7 @@ namespace Basics
 
   public class __opAnd__opAnd : Expr
   {
-    public string __name = "||";
+    public string __name = "&&";
     public Expr __arg0;
     public Expr __arg1;
 
@@ -1020,6 +1020,660 @@ namespace Basics
             break;
           }
         case 17:
+          {
+            Expr a = default(Expr);
+            Expr b = default(Expr);
+            ctxt m = default(ctxt);
+            float c = default(float);
+            float d = default(float);
+            float res = default(float);
+
+            if (!(__arg0 is __opPlus))
+            {
+              goto case 18;
+            }
+            __opPlus __tmp0 = (__opPlus)__arg0;
+            a = __tmp0.__arg0;
+            b = __tmp0.__arg1;
+            m = __arg1;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = a;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 18;
+            }
+            if (!(__tmp1.__res.Value is __opDollarf))
+            {
+              goto case 18;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            __opDollarf __tmp3 = (__opDollarf)__tmp2.Value;
+            c = __tmp3.__arg0;
+
+            eval __tmp4 = new eval();
+            __tmp4.__arg0 = b;
+            __tmp4.__arg1 = m;
+            __tmp4.Run();
+            if (!(__tmp4.__res.HasValue))
+            {
+              goto case 18;
+            }
+            if (!(__tmp4.__res.Value is __opDollarf))
+            {
+              goto case 18;
+            }
+            __MetaCnvResult<Value> __tmp5 = __tmp4.__res;
+            __opDollarf __tmp6 = (__opDollarf)__tmp5.Value;
+            d = __tmp6.__arg0;
+
+            res = c + d;
+            __opDollarf __tmp7 = new __opDollarf();
+            __tmp7.__arg0 = res;
+            __res.HasValue = true;
+            __res.Value = __tmp7;
+            break;
+          }
+        case 18:
+          {
+            Expr a = default(Expr);
+            Expr b = default(Expr);
+            ctxt m = default(ctxt);
+            float c = default(float);
+            float d = default(float);
+            float res = default(float);
+
+            if (!(__arg0 is __opMinus))
+            {
+              goto case 19;
+            }
+            __opMinus __tmp0 = (__opMinus)__arg0;
+            a = __tmp0.__arg0;
+            b = __tmp0.__arg1;
+            m = __arg1;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = a;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 19;
+            }
+            if (!(__tmp1.__res.Value is __opDollarf))
+            {
+              goto case 19;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            __opDollarf __tmp3 = (__opDollarf)__tmp2.Value;
+            c = __tmp3.__arg0;
+
+            eval __tmp4 = new eval();
+            __tmp4.__arg0 = b;
+            __tmp4.__arg1 = m;
+            __tmp4.Run();
+            if (!(__tmp4.__res.HasValue))
+            {
+              goto case 19;
+            }
+            if (!(__tmp4.__res.Value is __opDollarf))
+            {
+              goto case 19;
+            }
+            __MetaCnvResult<Value> __tmp5 = __tmp4.__res;
+            __opDollarf __tmp6 = (__opDollarf)__tmp5.Value;
+            d = __tmp6.__arg0;
+
+            res = c - d;
+            __opDollarf __tmp7 = new __opDollarf();
+            __tmp7.__arg0 = res;
+            __res.HasValue = true;
+            __res.Value = __tmp7;
+            break;
+          }
+        case 19:
+          {
+            Expr a = default(Expr);
+            Expr b = default(Expr);
+            ctxt m = default(ctxt);
+            float c = default(float);
+            float d = default(float);
+            float res = default(float);
+
+            if (!(__arg0 is __opMul))
+            {
+              goto case 20;
+            }
+            __opMul __tmp0 = (__opMul)__arg0;
+            a = __tmp0.__arg0;
+            b = __tmp0.__arg1;
+            m = __arg1;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = a;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 20;
+            }
+            if (!(__tmp1.__res.Value is __opDollarf))
+            {
+              goto case 20;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            __opDollarf __tmp3 = (__opDollarf)__tmp2.Value;
+            c = __tmp3.__arg0;
+
+            eval __tmp4 = new eval();
+            __tmp4.__arg0 = b;
+            __tmp4.__arg1 = m;
+            __tmp4.Run();
+            if (!(__tmp4.__res.HasValue))
+            {
+              goto case 20;
+            }
+            if (!(__tmp4.__res.Value is __opDollarf))
+            {
+              goto case 20;
+            }
+            __MetaCnvResult<Value> __tmp5 = __tmp4.__res;
+            __opDollarf __tmp6 = (__opDollarf)__tmp5.Value;
+            d = __tmp6.__arg0;
+
+            res = c * d;
+            __opDollarf __tmp7 = new __opDollarf();
+            __tmp7.__arg0 = res;
+            __res.HasValue = true;
+            __res.Value = __tmp7;
+            break;
+          }
+        case 20:
+          {
+            Expr a = default(Expr);
+            Expr b = default(Expr);
+            ctxt m = default(ctxt);
+            float c = default(float);
+            float d = default(float);
+            float res = default(float);
+
+            if (!(__arg0 is __opDiv))
+            {
+              goto case 21;
+            }
+            __opDiv __tmp0 = (__opDiv)__arg0;
+            a = __tmp0.__arg0;
+            b = __tmp0.__arg1;
+            m = __arg1;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = a;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 21;
+            }
+            if (!(__tmp1.__res.Value is __opDollarf))
+            {
+              goto case 21;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            __opDollarf __tmp3 = (__opDollarf)__tmp2.Value;
+            c = __tmp3.__arg0;
+
+            eval __tmp4 = new eval();
+            __tmp4.__arg0 = b;
+            __tmp4.__arg1 = m;
+            __tmp4.Run();
+            if (!(__tmp4.__res.HasValue))
+            {
+              goto case 21;
+            }
+            if (!(__tmp4.__res.Value is __opDollarf))
+            {
+              goto case 21;
+            }
+            __MetaCnvResult<Value> __tmp5 = __tmp4.__res;
+            __opDollarf __tmp6 = (__opDollarf)__tmp5.Value;
+            d = __tmp6.__arg0;
+
+            res = c / d;
+            __opDollarf __tmp7 = new __opDollarf();
+            __tmp7.__arg0 = res;
+            __res.HasValue = true;
+            __res.Value = __tmp7;
+            break;
+          }
+        case 21:
+          {
+            Expr a = default(Expr);
+            Expr b = default(Expr);
+            ctxt m = default(ctxt);
+            bool c = default(bool);
+
+            if (!(__arg0 is __opBar__opBar))
+            {
+              goto case 22;
+            }
+            __opBar__opBar __tmp0 = (__opBar__opBar)__arg0;
+            a = __tmp0.__arg0;
+            b = __tmp0.__arg1;
+            m = __arg1;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = a;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 22;
+            }
+            if (!(__tmp1.__res.Value is __opDollarb))
+            {
+              goto case 22;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            __opDollarb __tmp3 = (__opDollarb)__tmp2.Value;
+            c = __tmp3.__arg0;
+
+            if (!(c == true))
+            {
+              goto case 22;
+            }
+
+            __opDollarb __tmp4 = new __opDollarb();
+            __tmp4.__arg0 = c;
+            __res.HasValue = true;
+            __res.Value = __tmp4;
+            break;
+          }
+        case 22:
+          {
+            Expr a = default(Expr);
+            Expr b = default(Expr);
+            ctxt m = default(ctxt);
+            bool c = default(bool);
+            bool d = default(bool);
+
+            if (!(__arg0 is __opBar__opBar))
+            {
+              goto case 23;
+            }
+            __opBar__opBar __tmp0 = (__opBar__opBar)__arg0;
+            a = __tmp0.__arg0;
+            b = __tmp0.__arg1;
+            m = __arg1;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = a;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 23;
+            }
+            if (!(__tmp1.__res.Value is __opDollarb))
+            {
+              goto case 23;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            __opDollarb __tmp3 = (__opDollarb)__tmp2.Value;
+            c = __tmp3.__arg0;
+
+            if (c == false)
+            {
+              goto case 23;
+            }
+
+            eval __tmp4 = new eval();
+            __tmp4.__arg0 = b;
+            __tmp4.__arg1 = m;
+            __tmp4.Run();
+            if (!(__tmp4.__res.HasValue))
+            {
+              goto case 23;
+            }
+            if (!(__tmp4.__res.Value is __opDollarb))
+            {
+              goto case 23;
+            }
+            __MetaCnvResult<Value> __tmp5 = __tmp4.__res;
+            __opDollarb __tmp6 = (__opDollarb)__tmp5.Value;
+            d = __tmp6.__arg0;
+
+            __opDollarb __tmp7 = new __opDollarb();
+            __tmp7.__arg0 = d;
+            __res.HasValue = true;
+            __res.Value = __tmp7;
+            break;
+          }
+        case 23:
+          {
+            Expr a = default(Expr);
+            Expr b = default(Expr);
+            ctxt m = default(ctxt);
+            bool c = default(bool);
+
+            if (!(__arg0 is __opAnd__opAnd))
+            {
+              goto case 24;
+            }
+            __opAnd__opAnd __tmp0 = (__opAnd__opAnd)__arg0;
+            a = __tmp0.__arg0;
+            b = __tmp0.__arg1;
+            m = __arg1;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = a;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 24;
+            }
+            if (!(__tmp1.__res.Value is __opDollarb))
+            {
+              goto case 24;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            __opDollarb __tmp3 = (__opDollarb)__tmp2.Value;
+            c = __tmp3.__arg0;
+
+            if (!(c == false))
+            {
+              goto case 24;
+            }
+
+            __opDollarb __tmp4 = new __opDollarb();
+            __tmp4.__arg0 = c;
+            __res.HasValue = true;
+            __res.Value = __tmp4;
+            break;
+          }
+        case 24:
+          {
+            Expr a = default(Expr);
+            Expr b = default(Expr);
+            ctxt m = default(ctxt);
+            bool c = default(bool);
+            bool d = default(bool);
+
+            if (!(__arg0 is __opAnd__opAnd))
+            {
+              goto case 25;
+            }
+            __opAnd__opAnd __tmp0 = (__opAnd__opAnd)__arg0;
+            a = __tmp0.__arg0;
+            b = __tmp0.__arg1;
+            m = __arg1;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = a;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 25;
+            }
+            if (!(__tmp1.__res.Value is __opDollarb))
+            {
+              goto case 25;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            __opDollarb __tmp3 = (__opDollarb)__tmp2.Value;
+            c = __tmp3.__arg0;
+
+            if (c == true)
+            {
+              goto case 25;
+            }
+
+            eval __tmp4 = new eval();
+            __tmp4.__arg0 = b;
+            __tmp4.__arg1 = m;
+            __tmp4.Run();
+            if (!(__tmp4.__res.HasValue))
+            {
+              goto case 25;
+            }
+            if (!(__tmp4.__res.Value is __opDollarb))
+            {
+              goto case 25;
+            }
+            __MetaCnvResult<Value> __tmp5 = __tmp4.__res;
+            __opDollarb __tmp6 = (__opDollarb)__tmp5.Value;
+            d = __tmp6.__arg0;
+
+            __opDollarb __tmp7 = new __opDollarb();
+            __tmp7.__arg0 = d;
+            __res.HasValue = true;
+            __res.Value = __tmp7;
+            break;
+          }
+        case 25:
+          {
+            Expr a = default(Expr);
+            Expr b = default(Expr);
+            ctxt m = default(ctxt);
+            int c = default(int);
+            int d = default(int);
+
+            if (!(__arg0 is lt))
+            {
+              goto case 26;
+            }
+            lt __tmp0 = (lt)__arg0;
+            a = __tmp0.__arg0;
+            b = __tmp0.__arg1;
+            m = __arg1;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = a;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 26;
+            }
+            if (!(__tmp1.__res.Value is __opDollari))
+            {
+              goto case 26;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            __opDollari __tmp3 = (__opDollari)__tmp2.Value;
+            c = __tmp3.__arg0;
+
+            eval __tmp4 = new eval();
+            __tmp4.__arg0 = b;
+            __tmp4.__arg1 = m;
+            __tmp4.Run();
+            if (!(__tmp4.__res.HasValue))
+            {
+              goto case 26;
+            }
+            if (!(__tmp4.__res.Value is __opDollari))
+            {
+              goto case 26;
+            }
+            __MetaCnvResult<Value> __tmp5 = __tmp4.__res;
+            __opDollari __tmp6 = (__opDollari)__tmp5.Value;
+            d = __tmp6.__arg0;
+
+            __opDollarb __tmp7 = new __opDollarb();
+            __tmp7.__arg0 = c < d;
+            __res.HasValue = true;
+            __res.Value = __tmp7;
+            break;
+          }
+        case 26:
+          {
+            Expr a = default(Expr);
+            Expr b = default(Expr);
+            ctxt m = default(ctxt);
+            int c = default(int);
+            int d = default(int);
+
+            if (!(__arg0 is leq))
+            {
+              goto case 27;
+            }
+            leq __tmp0 = (leq)__arg0;
+            a = __tmp0.__arg0;
+            b = __tmp0.__arg1;
+            m = __arg1;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = a;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 27;
+            }
+            if (!(__tmp1.__res.Value is __opDollari))
+            {
+              goto case 27;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            __opDollari __tmp3 = (__opDollari)__tmp2.Value;
+            c = __tmp3.__arg0;
+
+            eval __tmp4 = new eval();
+            __tmp4.__arg0 = b;
+            __tmp4.__arg1 = m;
+            __tmp4.Run();
+            if (!(__tmp4.__res.HasValue))
+            {
+              goto case 27;
+            }
+            if (!(__tmp4.__res.Value is __opDollari))
+            {
+              goto case 27;
+            }
+            __MetaCnvResult<Value> __tmp5 = __tmp4.__res;
+            __opDollari __tmp6 = (__opDollari)__tmp5.Value;
+            d = __tmp6.__arg0;
+
+            __opDollarb __tmp7 = new __opDollarb();
+            __tmp7.__arg0 = c <= d;
+            __res.HasValue = true;
+            __res.Value = __tmp7;
+            break;
+          }
+        case 27:
+          {
+            Expr a = default(Expr);
+            Expr b = default(Expr);
+            ctxt m = default(ctxt);
+            int c = default(int);
+            int d = default(int);
+
+            if (!(__arg0 is gt))
+            {
+              goto case 28;
+            }
+            gt __tmp0 = (gt)__arg0;
+            a = __tmp0.__arg0;
+            b = __tmp0.__arg1;
+            m = __arg1;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = a;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 28;
+            }
+            if (!(__tmp1.__res.Value is __opDollari))
+            {
+              goto case 28;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            __opDollari __tmp3 = (__opDollari)__tmp2.Value;
+            c = __tmp3.__arg0;
+
+            eval __tmp4 = new eval();
+            __tmp4.__arg0 = b;
+            __tmp4.__arg1 = m;
+            __tmp4.Run();
+            if (!(__tmp4.__res.HasValue))
+            {
+              goto case 28;
+            }
+            if (!(__tmp4.__res.Value is __opDollari))
+            {
+              goto case 28;
+            }
+            __MetaCnvResult<Value> __tmp5 = __tmp4.__res;
+            __opDollari __tmp6 = (__opDollari)__tmp5.Value;
+            d = __tmp6.__arg0;
+
+            __opDollarb __tmp7 = new __opDollarb();
+            __tmp7.__arg0 = c > d;
+            __res.HasValue = true;
+            __res.Value = __tmp7;
+            break;
+          }
+        case 28:
+          {
+            Expr a = default(Expr);
+            Expr b = default(Expr);
+            ctxt m = default(ctxt);
+            int c = default(int);
+            int d = default(int);
+
+            if (!(__arg0 is geq))
+            {
+              goto case 29;
+            }
+            geq __tmp0 = (geq)__arg0;
+            a = __tmp0.__arg0;
+            b = __tmp0.__arg1;
+            m = __arg1;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = a;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 29;
+            }
+            if (!(__tmp1.__res.Value is __opDollari))
+            {
+              goto case 29;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            __opDollari __tmp3 = (__opDollari)__tmp2.Value;
+            c = __tmp3.__arg0;
+
+            eval __tmp4 = new eval();
+            __tmp4.__arg0 = b;
+            __tmp4.__arg1 = m;
+            __tmp4.Run();
+            if (!(__tmp4.__res.HasValue))
+            {
+              goto case 29;
+            }
+            if (!(__tmp4.__res.Value is __opDollari))
+            {
+              goto case 29;
+            }
+            __MetaCnvResult<Value> __tmp5 = __tmp4.__res;
+            __opDollari __tmp6 = (__opDollari)__tmp5.Value;
+            d = __tmp6.__arg0;
+
+            __opDollarb __tmp7 = new __opDollarb();
+            __tmp7.__arg0 = c >= d;
+            __res.HasValue = true;
+            __res.Value = __tmp7;
+            break;
+          }
+        case 29:
           {
             break;
           }

@@ -101,7 +101,30 @@ namespace CodeGenerationTypeFunctions
       ev.__arg1 = m;
       ev.Run();
 
+      //5 * (3 - 2)
+      __opMul mulint = new __opMul();
+      __opMinus minint = new __opMinus();
+      mulint.__arg0 = new __opDollari();
+      __opDollari eint1 = new __opDollari();
+      __opDollari eint2 = new __opDollari();
+      __opDollari eint3 = new __opDollari();
+      eint1.__arg0 = 5;
+      eint2.__arg0 = 3;
+      eint3.__arg0 = 2;
+      minint.__arg0 = eint2;
+      minint.__arg1 = eint3;
+      mulint.__arg0 = eint1;
+      mulint.__arg1 = minint;
+      
+      eval evint = new eval();
+      evint.__arg0 = mulint;
+      evint.__arg1 = m;
+      evint.Run();
+
       if (ev.__res.HasValue) Console.WriteLine(ev.__res.Value);
+      else Console.WriteLine("The rule has failed its evaluation");
+
+      if (evint.__res.HasValue) Console.WriteLine(evint.__res.Value);
       else Console.WriteLine("The rule has failed its evaluation");
     }
 

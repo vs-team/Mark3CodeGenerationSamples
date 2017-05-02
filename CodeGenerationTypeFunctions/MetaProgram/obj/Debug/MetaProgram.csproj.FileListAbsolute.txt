@@ -1,0 +1,7 @@
+C:\Users\Francesco\OneDrive\backup\CodeGenerationTypeFunctions\MetaProgram\bin\Debug\MetaProgram.dll
+C:\Users\Francesco\OneDrive\backup\CodeGenerationTypeFunctions\MetaProgram\bin\Debug\MetaProgram.pdb
+C:\Users\Francesco\OneDrive\backup\CodeGenerationTypeFunctions\MetaProgram\obj\Debug\MetaProgram.csprojResolveAssemblyReference.cache
+C:\Users\Francesco\OneDrive\backup\CodeGenerationTypeFunctions\MetaProgram\obj\Debug\MetaProgram.dll
+C:\Users\Francesco\OneDrive\backup\CodeGenerationTypeFunctions\MetaProgram\obj\Debug\MetaProgram.pdb
+C:\Users\Francesco\OneDrive\backup\CodeGenerationTypeFunctions\MetaProgram\bin\Debug\System.Collections.Immutable.dll
+C:\Users\Francesco\OneDrive\backup\CodeGenerationTypeFunctions\MetaProgram\bin\Debug\System.Collections.Immutable.xml

@@ -488,6 +488,7 @@ namespace Statements
             __res.Value = __tmp4;
             break;
           }
+        //yield
         case 5:
           {
             Lists.List<Expr> exprs = default(Lists.List<Expr>);
@@ -522,7 +523,54 @@ namespace Statements
             __res.Value = __tmp3;
             break;
           }
+        //a;b
         case 6:
+          {
+            stmt a = default(stmt);
+            stmt b = default(stmt);
+            stmt k = default(stmt);
+            ctxt ctxt = default(ctxt);
+            float dt = default(float);
+            stmt cont = default(stmt);
+            ExecutionResult res = default(ExecutionResult);
+
+            if (!(__arg0 is __opSemicolon))
+            {
+              goto case 7;
+            }
+            __opSemicolon __tmp0 = (__opSemicolon)__arg0;
+            k = __arg1;
+            ctxt = __arg2;
+            dt = __arg3;
+
+            addStmt __tmp1 = new addStmt();
+            __tmp1.__arg0 = b;
+            __tmp1.__arg1 = k;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 7;
+            }
+            __MetaCnvResult<stmt> __tmp2 = __tmp1.__res;
+            cont = __tmp2.Value;
+
+            eval_s __tmp3 = new eval_s();
+            __tmp3.__arg0 = a;
+            __tmp3.__arg1 = cont;
+            __tmp3.__arg2 = ctxt;
+            __tmp3.__arg3 = dt;
+            __tmp3.Run();
+            if (!(__tmp3.__res.HasValue))
+            {
+              goto case 7;
+            }
+            __MetaCnvResult<ExecutionResult> __tmp4 = __tmp3.__res;
+            res = __tmp4.Value;
+            __res.HasValue = true;
+            __res.Value = res;
+            break;
+          }
+        case 7:
           {
             break;
           }

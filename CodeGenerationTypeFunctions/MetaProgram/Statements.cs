@@ -570,7 +570,32 @@ namespace Statements
             __res.Value = res;
             break;
           }
+        //nop
         case 7:
+          {
+            ctxt ctxt = default(ctxt);
+            float dt = default(float);
+
+            if (!(__arg0 is nop))
+            {
+              goto case 8;
+            }
+            nop __tmp0 = (nop)__arg0;
+            if (!(__arg1 is nop))
+            {
+              goto case 8;
+            }
+            nop __tmp1 = (nop)__arg1;
+            ctxt = __arg2;
+            dt = __arg3;
+
+            Done __tmp2 = new Done();
+            __tmp2.__arg0 = ctxt;
+            __res.HasValue = true;
+            __res.Value = __tmp2;
+            break;
+          }
+        case 8:
           {
             break;
           }

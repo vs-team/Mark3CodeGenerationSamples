@@ -1,12 +1,86 @@
 ﻿using System;
 using Lists;
 using Tuples;
+using MetaCnvInternals;
 using Basics;
 using Statements;
 using System.Collections.Immutable;
 
 namespace CodeGenerationTypeFunctions
 {
+  public class run
+  {
+    public float __arg0;
+    public __MetaCnvResult<GameState> __res;
+
+    public void Run()
+    {
+      int __ruleIndex = 0;
+      __res = new __MetaCnvResult<GameState>();
+      __res.HasValue = false;
+      __res.Value = default(GameState);
+
+
+      switch (__ruleIndex)
+      {
+        case 0:
+          {
+            float dt = default(float);
+            dt = __arg0;
+            __opDollarVector2 p = new __opDollarVector2();
+            p.__arg0 = 1.0f;
+            p.__arg1 = 1.0f;
+            __opDollarVector2 vx = new __opDollarVector2();
+            vx.__arg0 = 1.0f;
+            vx.__arg1 = 0.0f;
+            __opDollarVector2 vx1 = new __opDollarVector2();
+            vx1.__arg0 = -1.0f;
+            vx1.__arg1 = 0.0f;
+            __opDollarVector2 vy = new __opDollarVector2();
+            vy.__arg0 = 0.0f;
+            vy.__arg1 = 1.0f;
+            when s1 = new when();
+            __opDollar __tmp0 = new __opDollar();
+            __tmp0.__arg0 = "Position";
+            vectorx __tmp1 = new vectorx();
+            __tmp1.__arg0 = __tmp0;
+            lt __tmp2 = new lt();
+            __tmp2.__arg0 = __tmp1;
+            __opDollarf __tmp3 = new __opDollarf();
+            __tmp3.__arg0 = 30.0f;
+            __tmp2.__arg1 = __tmp3;
+            s1.__arg0 = __tmp2;
+            yield s2 = new yield();
+            __opColon__opColon<Expr> __tmp4 = new __opColon__opColon<Expr>();
+            __tmp4.__arg0 = vx;
+            __tmp4.__arg1 = new nil<Expr>();
+            s2.__arg0 = __tmp4;
+            when s3 = new when();
+            __opDollar __tmp5 = new __opDollar();
+            __tmp5.__arg0 = "Position";
+            vectorx __tmp6 = new vectorx();
+            __tmp6.__arg0 = __tmp0;
+            gt __tmp7 = new gt();
+            __tmp7.__arg0 = __tmp1;
+            __opDollarf __tmp8 = new __opDollarf();
+            __tmp8.__arg0 = 0.0f;
+            __tmp7.__arg1 = __tmp8;
+            s3.__arg0 = __tmp7;
+            yield s4 = new yield();
+            __opColon__opColon<Expr> __tmp9 = new __opColon__opColon<Expr>();
+            __tmp9.__arg0 = vx1;
+            __tmp9.__arg1 = new nil<Expr>();
+            break;
+          }
+        default: break;
+      }
+
+     
+    }
+
+
+  }
+
 #if WINDOWS || LINUX
   public static class Program
   {
@@ -116,7 +190,7 @@ namespace CodeGenerationTypeFunctions
       minint.__arg1 = eint3;
       mulint.__arg0 = eint1;
       mulint.__arg1 = minint;
-      
+
       eval evint = new eval();
       evint.__arg0 = mulint;
       evint.__arg1 = m;

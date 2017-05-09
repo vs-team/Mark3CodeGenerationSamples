@@ -59,7 +59,7 @@ namespace Basics
     }
   }
 
-  public class __opDollarVector2 : Value
+  public class __opDollarVector2 : Value, Tuples.Tuple<float, float>
   {
     public string __name = "$Vector2";
     public float __arg0;
@@ -291,6 +291,28 @@ namespace Basics
     public override string ToString()
     {
       return "(" + __arg0 + " " + __name + " " + __arg1 + " " + __arg2 + ")";
+    }
+  }
+
+  public class vectorx : Expr
+  {
+    public string __name = "vectorx";
+    public Expr __arg0;
+
+    public override string ToString()
+    {
+      return "(" + __name + " " + __arg0 + ")";
+    }
+  }
+
+  public class vectory : Expr
+  {
+    public string __name = "vectorx";
+    public Expr __arg0;
+
+    public override string ToString()
+    {
+      return "(" + __name + " " + __arg0 + ")";
     }
   }
 
@@ -2012,6 +2034,78 @@ namespace Basics
             break;
           }
         case 36:
+          {
+            Expr v = default(Expr);
+            ctxt m = default(ctxt);
+            float x = default(float);
+            float y = default(float);
+            if (!(__arg0 is vectorx))
+            {
+              goto case 37;
+            }
+            vectorx __tmp0 = (vectorx)__arg0;
+            v = __tmp0.__arg0;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = v;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 37;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            if (!(__tmp2.Value is __opDollarVector2))
+            {
+              goto case 37;
+            }
+            __opDollarVector2 __tmp3 = (__opDollarVector2)__tmp2.Value;
+            x = __tmp3.__arg0;
+            y = __tmp3.__arg1;
+
+            __opDollarf __tmp4 = new __opDollarf();
+            __tmp4.__arg0 = x;
+            __res.HasValue = true;
+            __res.Value = __tmp4;
+            break;
+          }
+        case 37:
+          {
+            Expr v = default(Expr);
+            ctxt m = default(ctxt);
+            float x = default(float);
+            float y = default(float);
+            if (!(__arg0 is vectory))
+            {
+              goto case 37;
+            }
+            vectory __tmp0 = (vectory)__arg0;
+            v = __tmp0.__arg0;
+
+            eval __tmp1 = new eval();
+            __tmp1.__arg0 = v;
+            __tmp1.__arg1 = m;
+            __tmp1.Run();
+            if (!(__tmp1.__res.HasValue))
+            {
+              goto case 37;
+            }
+            __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
+            if (!(__tmp2.Value is __opDollarVector2))
+            {
+              goto case 37;
+            }
+            __opDollarVector2 __tmp3 = (__opDollarVector2)__tmp2.Value;
+            x = __tmp3.__arg0;
+            y = __tmp3.__arg1;
+
+            __opDollarf __tmp4 = new __opDollarf();
+            __tmp4.__arg0 = y;
+            __res.HasValue = true;
+            __res.Value = __tmp4;
+            break;
+          }
+        case 38:
           {
             break;
           }

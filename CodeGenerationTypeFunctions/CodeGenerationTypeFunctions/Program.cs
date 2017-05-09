@@ -5,6 +5,7 @@ using MetaCnvInternals;
 using Basics;
 using Statements;
 using System.Collections.Immutable;
+using System.Diagnostics;
 
 namespace CodeGenerationTypeFunctions
 {
@@ -153,8 +154,14 @@ namespace CodeGenerationTypeFunctions
             __tick.__arg4 = dt;
             __tick.Run();
 
-            if (__tick.__res.HasValue) Console.WriteLine(__tick.__res.Value);
-            else Console.WriteLine("The rule has failed its evaluation");
+            if (!(__tick.__res.HasValue))
+            {
+              goto default;
+            }
+            __MetaCnvResult<GameState> __restmp0 = __tick.__res;
+            GameState __restmp1 = __restmp0.Value;
+            __res.HasValue = true;
+            __res.Value = __restmp1;
             break;
           }
         default: break;
@@ -294,10 +301,28 @@ namespace CodeGenerationTypeFunctions
       //TestList();
       //TestTuple();
       //TestExpr();
-
-      run run = new run();
-      run.__arg0 = 0.1f;
-      run.Run();
+      Stopwatch watch = new Stopwatch();
+      long now, before = 0;
+      float dt;
+      watch.Start();
+      for (int i = 0; i < 10000; i++)
+      {
+        now = watch.ElapsedMilliseconds;
+        dt = (now - before) / 1000f;
+        if (dt >= 1 / 60f)
+        {
+          run run = new run();
+          run.__arg0 = dt;
+          run.Run();
+          if (!(run.__res.HasValue))
+          {
+            Console.WriteLine("Rule failed to evaluate");
+            break;
+          }
+          State state = (State)run.__res.Value;
+        }
+        before = now;
+      }
 
       //using (var game = new Game1())
       //    game.Run();

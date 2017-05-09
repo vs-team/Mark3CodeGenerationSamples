@@ -57,9 +57,12 @@ namespace Basics
     {
       return "(" + __name + " " + __arg0 + ")";
     }
+
+    public __opDollarf(float f) { __arg0 = f; }
+    public __opDollarf() { }
   }
 
-  public class __opDollarVector2 : Value, Tuples.Tuple<float, float>
+  public class __opDollarVector2 : Value
   {
     public string __name = "$Vector2";
     public float __arg0;
@@ -69,6 +72,9 @@ namespace Basics
     {
       return "(" + __name + " " + __arg0 + " " + __arg1 + ")";
     }
+
+    public __opDollarVector2(float x, float y) { __arg0 = x; __arg1 = y; }
+    public __opDollarVector2() { }
   }
 
   public class __opDollarl : Value
@@ -243,6 +249,9 @@ namespace Basics
     {
       return "(" + __arg0 + " " + __name + " " + __arg1 + ")";
     }
+
+    public lt(Expr left, Expr right) { __arg0 = left; __arg1 = right; }
+    public lt() { }
   }
 
   public class leq : Expr
@@ -267,6 +276,9 @@ namespace Basics
     {
       return "(" + __arg0 + " " + __name + " " + __arg1 + ")";
     }
+
+    public gt(Expr left, Expr right) { __arg0 = left; __arg1 = right; }
+    public gt() { }
   }
 
   public class geq : Expr
@@ -2045,6 +2057,7 @@ namespace Basics
             }
             vectorx __tmp0 = (vectorx)__arg0;
             v = __tmp0.__arg0;
+            m = __arg1;
 
             eval __tmp1 = new eval();
             __tmp1.__arg0 = v;
@@ -2077,10 +2090,12 @@ namespace Basics
             float y = default(float);
             if (!(__arg0 is vectory))
             {
-              goto case 37;
+              goto case 38;
             }
             vectory __tmp0 = (vectory)__arg0;
             v = __tmp0.__arg0;
+            m = __arg1;
+
 
             eval __tmp1 = new eval();
             __tmp1.__arg0 = v;
@@ -2088,12 +2103,12 @@ namespace Basics
             __tmp1.Run();
             if (!(__tmp1.__res.HasValue))
             {
-              goto case 37;
+              goto case 38;
             }
             __MetaCnvResult<Value> __tmp2 = __tmp1.__res;
             if (!(__tmp2.Value is __opDollarVector2))
             {
-              goto case 37;
+              goto case 38;
             }
             __opDollarVector2 __tmp3 = (__opDollarVector2)__tmp2.Value;
             x = __tmp3.__arg0;

@@ -70,6 +70,91 @@ namespace CodeGenerationTypeFunctions
             __opColon__opColon<Expr> __tmp9 = new __opColon__opColon<Expr>();
             __tmp9.__arg0 = vx1;
             __tmp9.__arg1 = new nil<Expr>();
+            s4.__arg0 = __tmp9;
+            yield s5 = new yield();
+            __opColon__opColon<Expr> __tmp10 = new __opColon__opColon<Expr>();
+            __opPlus __tmp11 = new __opPlus();
+            __opDollar __tmp12 = new __opDollar();
+            __opDollar __tmp13 = new __opDollar();
+            __tmp12.__arg0 = "Position";
+            __tmp13.__arg0 = "Velocity";
+            __tmp11.__arg0 = __tmp12;
+            __tmp11.__arg1 = __tmp13;
+            __tmp10.__arg0 = __tmp11;
+            __tmp10.__arg1 = new nil<Expr>();
+            s5.__arg0 = __tmp10;
+            ImmutableDictionary<string, Value> dict1 = ImmutableDictionary<string, Value>.Empty.Add("Position", p);
+            ImmutableDictionary<string, Value> dict = dict1.Add("Velocity", vx);
+
+            //r1
+            __opColon__opColon<string> __r1tmp0 = new __opColon__opColon<string>();
+            __r1tmp0.__arg0 = "Velocity";
+            __r1tmp0.__arg1 = new nil<string>();
+            __opSemicolon __r1tmp1 = new __opSemicolon();
+            __r1tmp1.__arg0 = s1;
+            __r1tmp1.__arg1 = s2;
+            rule r1 = new rule();
+            r1.__arg0 = __r1tmp0;
+            r1.__arg1 = __r1tmp1;
+            r1.__arg2 = new nop();
+            r1.__arg3 = ImmutableDictionary<string, Value>.Empty;
+            r1.__arg4 = dt;
+
+            //r2
+            __opColon__opColon<string> __r2tmp0 = new __opColon__opColon<string>();
+            __r2tmp0.__arg0 = "Velocity";
+            __r2tmp0.__arg1 = new nil<string>();
+            __opSemicolon __r2tmp1= new __opSemicolon();
+            __r2tmp1.__arg0 = s3;
+            __r2tmp1.__arg1 = s4;
+            rule r2 = new rule();
+            r2.__arg0 = __r2tmp0;
+            r2.__arg1 = __r2tmp1;
+            r2.__arg2 = new nop();
+            r2.__arg3 = ImmutableDictionary<string, Value>.Empty;
+            r2.__arg4 = dt;
+
+            //r3
+            __opColon__opColon<string> __r3tmp0 = new __opColon__opColon<string>();
+            __r3tmp0.__arg0 = "Position";
+            __r3tmp0.__arg1 = new nil<string>();
+            rule r3 = new rule();
+            r3.__arg0 = __r3tmp0;
+            r3.__arg1 = s5;
+            r3.__arg2 = new nop();
+            r3.__arg3 = ImmutableDictionary<string, Value>.Empty;
+            r3.__arg4 = dt;
+
+            tick __tick = new tick();
+            __opColon__opColon<Rule> __ticktmp0 = new __opColon__opColon<Rule>();
+            __opColon__opColon<Rule> __ticktmp1 = new __opColon__opColon<Rule>();
+            __opColon__opColon<Rule> __ticktmp2 = new __opColon__opColon<Rule>();
+            __ticktmp2.__arg0 = r3;
+            __ticktmp2.__arg1 = new nil<Rule>();
+            __ticktmp1.__arg0 = r2;
+            __ticktmp1.__arg1 = __ticktmp2;
+            __ticktmp0.__arg0 = r3;//r1;
+            __ticktmp0.__arg1 = new nil<Rule>();//__ticktmp1;
+
+            __opColon__opColon<Rule> __ticktmp3 = new __opColon__opColon<Rule>();
+            __opColon__opColon<Rule> __ticktmp4 = new __opColon__opColon<Rule>();
+            __opColon__opColon<Rule> __ticktmp5 = new __opColon__opColon<Rule>();
+            __ticktmp5.__arg0 = r3;
+            __ticktmp5.__arg1 = new nil<Rule>();
+            __ticktmp4.__arg0 = r2;
+            __ticktmp4.__arg1 = __ticktmp5;
+            __ticktmp3.__arg0 = r3;//r1;
+            __ticktmp3.__arg1 = new nil<Rule>();//__ticktmp4;
+
+            __tick.__arg0 = __ticktmp0;
+            __tick.__arg1 = __ticktmp3;
+            __tick.__arg2 = dict;
+            __tick.__arg3 = ImmutableDictionary<string, Value>.Empty;
+            __tick.__arg4 = dt;
+            __tick.Run();
+
+            if (__tick.__res.HasValue) Console.WriteLine(__tick.__res.Value);
+            else Console.WriteLine("The rule has failed its evaluation");
             break;
           }
         default: break;
@@ -208,7 +293,11 @@ namespace CodeGenerationTypeFunctions
     {
       //TestList();
       //TestTuple();
-      TestExpr();
+      //TestExpr();
+
+      run run = new run();
+      run.__arg0 = 0.1f;
+      run.Run();
 
       //using (var game = new Game1())
       //    game.Run();

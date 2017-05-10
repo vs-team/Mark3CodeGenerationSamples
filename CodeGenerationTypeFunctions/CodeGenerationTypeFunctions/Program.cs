@@ -4,8 +4,10 @@ using Tuples;
 using MetaCnvInternals;
 using Basics;
 using Statements;
+using Record;
 using System.Collections.Immutable;
 using System.Diagnostics;
+using System.Linq;
 
 namespace CodeGenerationTypeFunctions
 {
@@ -295,37 +297,74 @@ namespace CodeGenerationTypeFunctions
       else Console.WriteLine("The rule has failed its evaluation");
     }
 
-    [STAThread]
+    const int minUpdates = 100;
+    const int updates = 1000000;
+    const string fileHeader = "RECORDS, FIELDS, TIME\n";
+
+    static void TestDynamicTable()
+    {
+      long time = 0;
+      Stopwatch watch = new Stopwatch();
+      Random r = new Random();
+      string fileContent = fileHeader;
+      ImmutableDictionary<int, int> dynamicTable = ImmutableDictionary<int, int>.Empty;
+      for (int i = 1; i <= 10; i++)
+      {
+        Console.WriteLine("Running dynamic table with " + i + " fields...");
+        for (int u = minUpdates; u <= updates; u *= 10)
+        {
+          int[] keys = new int[i];
+          for (int d = 0; d < i; d++)
+          {
+            keys[d] = r.Next();
+            dynamicTable = dynamicTable.Add(keys[d], r.Next(-100, 100));
+          }
+          watch.Restart();
+          for (int j = 0; j < u; j++)
+          {
+            dynamicTable.Last();
+          }
+          watch.Stop();
+          time += watch.ElapsedMilliseconds;
+          fileContent += i + "," + u + "," + ((double)watch.ElapsedMilliseconds / updates) + "\n";
+        }
+        Console.WriteLine("Done");
+      }
+      if (!System.IO.Directory.Exists("Benchmark"))
+        System.IO.Directory.CreateDirectory("Benchmark");
+      System.IO.File.WriteAllText("Benchmark\\benchmark_dynamic_table.csv", fileContent);
+    }
+
+    static void TestFunctors()
+    {
+      long time = 0;
+      string fileContent = fileHeader;
+      Stopwatch watch = new Stopwatch();
+      for (int i = 1; i <= 10; i++)
+      {
+        Console.WriteLine("Running meta-records with " + i + " fields...");
+        for (int u = minUpdates; u <= updates; u *= 10)
+        {
+          watch.Restart();
+          for (int j = 0; j < u; j++)
+          {
+            TestRecord.TestRecords(i);
+          }
+          watch.Stop();
+          time += watch.ElapsedMilliseconds;
+          fileContent += i + "," + u + "," + ((double)watch.ElapsedMilliseconds / updates) + "\n";
+        }
+        Console.WriteLine("Done");
+      }
+      if (!System.IO.Directory.Exists("Benchmark"))
+        System.IO.Directory.CreateDirectory("Benchmark");
+      System.IO.File.WriteAllText("Benchmark\\benchmark_functors.csv", fileContent);
+    }
+
     static void Main()
     {
-      //TestList();
-      //TestTuple();
-      //TestExpr();
-      Stopwatch watch = new Stopwatch();
-      long now, before = 0;
-      float dt;
-      watch.Start();
-      for (int i = 0; i < 10000; i++)
-      {
-        now = watch.ElapsedMilliseconds;
-        dt = (now - before) / 1000f;
-        if (dt >= 1 / 60f)
-        {
-          run run = new run();
-          run.__arg0 = dt;
-          run.Run();
-          if (!(run.__res.HasValue))
-          {
-            Console.WriteLine("Rule failed to evaluate");
-            break;
-          }
-          State state = (State)run.__res.Value;
-        }
-        before = now;
-      }
-
-      //using (var game = new Game1())
-      //    game.Run();
+      TestFunctors();
+      TestDynamicTable();
     }
   }
 #endif

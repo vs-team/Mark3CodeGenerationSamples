@@ -14,6 +14,14 @@ namespace Tuples
     public a __arg0;
     public b __arg1;
 
+    public __opComma(a item1, b item2)
+    {
+      __arg0 = item1;
+      __arg1 = item2;
+    }
+
+    public __opComma() { }
+
     public override string ToString()
     {
       return "(" + __arg0 + " " + __name + " " + __arg1 + ")";

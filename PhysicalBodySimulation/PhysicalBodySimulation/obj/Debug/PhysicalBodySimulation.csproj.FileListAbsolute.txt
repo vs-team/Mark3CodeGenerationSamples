@@ -1,0 +1,7 @@
+c:\users\fdigi\source\repos\PhysicalBodySimulation\PhysicalBodySimulation\bin\Debug\PhysicalBodySimulation.exe.config
+c:\users\fdigi\source\repos\PhysicalBodySimulation\PhysicalBodySimulation\bin\Debug\PhysicalBodySimulation.exe
+c:\users\fdigi\source\repos\PhysicalBodySimulation\PhysicalBodySimulation\bin\Debug\PhysicalBodySimulation.pdb
+c:\users\fdigi\source\repos\PhysicalBodySimulation\PhysicalBodySimulation\obj\Debug\PhysicalBodySimulation.csprojResolveAssemblyReference.cache
+c:\users\fdigi\source\repos\PhysicalBodySimulation\PhysicalBodySimulation\obj\Debug\PhysicalBodySimulation.csproj.CoreCompileInputs.cache
+c:\users\fdigi\source\repos\PhysicalBodySimulation\PhysicalBodySimulation\obj\Debug\PhysicalBodySimulation.exe
+c:\users\fdigi\source\repos\PhysicalBodySimulation\PhysicalBodySimulation\obj\Debug\PhysicalBodySimulation.pdb

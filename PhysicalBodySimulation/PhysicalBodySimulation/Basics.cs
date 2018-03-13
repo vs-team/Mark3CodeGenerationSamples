@@ -29,7 +29,7 @@ namespace Tuple
 {
   using Internals;
 
-  public interface Tuple<a, b> { }
+  public interface Tuple<a, b>{ }
 
   public class __opComma<a, b> : Tuple<a, b>
   {

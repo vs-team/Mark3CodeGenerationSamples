@@ -122,7 +122,7 @@ namespace PhysicalBodySimulation
       return watch.ElapsedMilliseconds / 1000.0 / iterations;
     }
 
-    static void RunTest(int[] entityNumberArray, int iterations, bool printToConsole = false)
+    static void RunTest(int[] entityNumberArray, int iterations, string fileName, bool printToConsole = false)
     {
       string report = "Entity number,Average update\n";
       for (int i = 0; i < entityNumberArray.Length; i++)
@@ -131,9 +131,10 @@ namespace PhysicalBodySimulation
         double elapsedTime = TestWorldUpdater(entityNumberArray[i], iterations);
         report += entityNumberArray[i] + "," + elapsedTime + "\n";
       }
-      System.Console.Write(report);
+      if (printToConsole)
+        System.Console.Write(report);
       Directory.CreateDirectory("Report");
-      File.WriteAllText(@"Report\data.csv", report);
+      File.WriteAllText(Path.Combine(new string[]{ "Report", fileName }), report);
     }
 
     static void Main(string[] args)
@@ -145,18 +146,12 @@ namespace PhysicalBodySimulation
       int[] entityCounts = new int[]
         {
           100,
-          200,
-          300,
-          450,
+          250,
           500,
-          600,
-          700,
-          800,
-          900,
-          1000,
-          10000
+          750,
+          1000
         };
-      RunTest(entityCounts, 100);
+      RunTest(entityCounts, 10000, "evaluation_traversal.csv");
     }
   }
 }
